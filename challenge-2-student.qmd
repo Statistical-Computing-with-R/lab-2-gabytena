@@ -22,6 +22,7 @@ Within this document, make sure to specify that your plots are contained in your
 Next, create a setup code chunk to load the packages and read in the `surveys.csv` data file exactly how you did in Lab 2.
 
 ```{r}
+#| label: Set-Up
 surveys <- read_csv(here::here("data", "surveys.csv"))
 library(ggridges)
 library(tidyverse)
