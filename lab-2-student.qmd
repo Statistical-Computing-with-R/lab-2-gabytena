@@ -5,6 +5,9 @@ format: html
 editor: source
 embed-resources: true
 code-tools: true
+echo: true
+warning: false
+message: false
 ---
 
 # Part 1: GitHub Workflow
@@ -195,8 +198,8 @@ ggplot(data = surveys,
       alpha = .2) +
   labs(x = "Species of animal",
        y = "",
-       title = "Distributions of Weight in Animal Species") +
-  theme(axis.text.x = element_text(angle = 45))
+       title = "Distributions of Weight in grams in Animal Species") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
         
 ```
 
@@ -243,7 +246,16 @@ Some people (and journals) prefer for boxplots to be stacked with a specific ori
 
 ```{r}
 #| label: rotated-boxplot
-
+ggplot(data = surveys, 
+       aes(x = weight, 
+            y = species)) +
+  geom_boxplot(outliers = FALSE) + 
+  geom_jitter(
+      color = "blue",
+      alpha = .2) +
+  labs(x = "Weight in grams",
+       y = "",
+       title = "Distributions of Weight in Animal Species")
 ```
 
 Notice how vertically stacked boxplots make the species labels more readable
@@ -276,13 +288,14 @@ might want to look up the help documentation for `aov()`.
 ```{r}
 #| label: anova
 
-species_mod <- aov()
+species_mod <- aov(weight~species, data = surveys)
 
 summary(species_mod)
 ```
 
 **18. Based on the results of the ANOVA F-test, draw a conclusion in context of the hypotheses. Make sure to cite appropriate output from above.**
 
+Because the p-value, 0.00, is less than .05, we reject the null. We have convincing evidence that at least one rodent species has a different population mean.
 
 # Lab 2 Submission
 
