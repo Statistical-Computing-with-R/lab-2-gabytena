@@ -8,6 +8,7 @@ code-tools: true
 echo: true
 warning: false
 message: false
+theme: materia
 ---
 
 # Part 1: GitHub Workflow
