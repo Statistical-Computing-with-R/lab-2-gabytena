@@ -1,10 +1,14 @@
 ---
 title: "Challenge 2: Spicing things up with ggplot2"
-author: "Add your name!"
+author: "Gabriela Tena!"
 format: html
 editor: source
 embed-resources: true
 code-tools: true
+echo: true
+self-contained: true
+warning: false
+message: false
 ---
 
 For this week's Challenge, you will have three different options to explore.
@@ -22,6 +26,11 @@ you would like to include, feel free to toss those in the YAML, too!
 
 Next, create a setup code chunk to load the packages and read in the
 `surveys.csv` data file exactly how you did in Lab 2.
+```{r}
+surveys <- read_csv(here::here("data", "surveys.csv"))
+install.packages("ggridges")
+library(ggridges)
+```
 
 Finally, create another code chunk and paste in your code from Question 14 or Question 15 in Lab 2 -- we will be modifying the box plot of weights by species!
 
