@@ -3,8 +3,6 @@ title: "Challenge 2: Spicing things up with ggplot2"
 author: "Gabriela Tena!"
 format: html
 editor: source
-  markdown: 
-    wrap: 72
 embed-resources: true
 code-tools: true
 echo: true
