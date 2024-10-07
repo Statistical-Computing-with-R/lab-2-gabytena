@@ -102,18 +102,30 @@ represent:
 
 ```{r}
 #| label: load-data
+surveys <- read_csv(here::here("data", "surveys.csv"))
 
+dim(surveys)
+
+typeof(surveys)
 ```
 
 **2. What are the dimensions (# of rows and columns) of these data?**
 
 <!-- You can either write code here or in the code chunk for #1, but I **must** see the code you used to address this question!  -->
 
+[1] 30463(rows)    15(columns)
+
+#https://www.r-bloggers.com/2020/06/determine-the-size-of-a-data-frame/
+
 **3. What are the data types of the variables in this dataset?**
 
 <!-- You can either write code here or in the code chunk for #1, but I **must** see the code you used to address this question!  -->
 
+
+
 # Exploratory Data Analysis with **`ggplot2`**
+
+
 
 `ggplot()` graphics are built step by step by adding new elements. Adding layers
 in this fashion allows for extensive flexibility and customization of plots.
@@ -139,7 +151,9 @@ the $x$-axis) and `hindfoot_length` (on the $y$-axis).**
 
 ```{r}
 #| label: scatterplot
-
+ggplot(data = surveys,
+       mapping = aes(x = weight, y =  hindfoot_length) ) +
+       geom_point()
 ```
 
 We can see there are **a lot** of points plotted on top of each other. Let's try and modify this plot to extract more information from it.
