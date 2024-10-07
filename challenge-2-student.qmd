@@ -30,9 +30,21 @@ Next, create a setup code chunk to load the packages and read in the
 surveys <- read_csv(here::here("data", "surveys.csv"))
 install.packages("ggridges")
 library(ggridges)
+library(tidyverse)
 ```
 
 Finally, create another code chunk and paste in your code from Question 14 or Question 15 in Lab 2 -- we will be modifying the box plot of weights by species!
+```{r}
+#| label: ridge plots
+ggplot(data = surveys, 
+       aes(x = weight, 
+            y = species,)) +
+  geom_density_ridges(alpha = .75)+
+  labs(x = "Weight in Grams",
+       y = "",
+       title = "Distributions of Weight in grams in Animal Species") 
+
+```
 
 # Medium: Ridge Plots
 
