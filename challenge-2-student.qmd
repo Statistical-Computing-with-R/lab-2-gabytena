@@ -6,6 +6,7 @@ editor: source
 embed-resources: true
 code-tools: true
 echo: true
+code-fold: true
 self-contained: true
 warning: false
 message: false
@@ -23,9 +24,11 @@ Next, create a setup code chunk to load the packages and read in the `surveys.cs
 
 ```{r}
 #| label: Set-Up
-surveys <- read_csv(here::here("data", "surveys.csv"))
 library(ggridges)
 library(tidyverse)
+
+surveys <- read_csv(here::here("data", "surveys.csv"))
+
 ```
 
 Finally, create another code chunk and paste in your code from Question 14 or Question 15 in Lab 2 -- we will be modifying the box plot of weights by species!
